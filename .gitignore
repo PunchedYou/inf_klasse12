@@ -1,4 +1,5 @@
 # Compiled Classes
+/bin
 *.class
 # Log File
 *.log
