@@ -1,5 +1,4 @@
 # Compiled Classes
-/bin
 *.class
 # Log File
 *.log
@@ -15,3 +14,4 @@
 *.rar
 # Other Files
 .vsls.json
+/bin
