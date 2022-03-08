@@ -10,7 +10,7 @@ public class Aufteilung {
     private String[] deko;
 
     public Aufteilung() {
-        String datei = "files/buecherregal5.txt";
+        String datei = "assets/buecherregal6.txt";
         dateiEinlesen(datei);
     }
 
