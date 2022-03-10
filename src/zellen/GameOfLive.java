@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class GameOfLive implements ActionListener {
     private JFrame window = new JFrame("Eine Generation");
-    JButton[][] button = new JButton[101][101];
+    JButton[][] button = new JButton[100][100];
 
     boolean[][] zellen;
     boolean[][] neueZellen;
@@ -16,8 +16,8 @@ public class GameOfLive implements ActionListener {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(new GridLayout(button.length, button[0].length));
 
-        for (int i = 1; i < button.length - 1; i++) {
-            for (int j = 0; j < button[i].length - 1; j++) {
+        for (int i = 0; i < button.length; i++) {
+            for (int j = 0; j < button[i].length; j++) {
                 button[i][j] = new JButton("");
                 window.add(button[i][j]);
                 button[i][j].setBackground(Color.WHITE);
@@ -86,8 +86,8 @@ public class GameOfLive implements ActionListener {
             }
 
             // Ist das Feld leer?
-            for (int y = 1; y < zellen.length - 1; y++) {
-                for (int x = 1; x < zellen[y].length - 1; x++) {
+            for (int y = 0; y < zellen.length; y++) {
+                for (int x = 0; x < zellen[y].length; x++) {
                     if (zellen[y][x]) {
                         p = true;
                     }

@@ -26,6 +26,18 @@ public class ZweiteGeneration implements ActionListener {
         window.setVisible(true);
     }
 
+    public static void main(String[] args) {
+        ZweiteGeneration g = new ZweiteGeneration();
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        g.generationenErstellen();
+    }
+
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < button.length; i++) {
             for (int j = 0; j < button[i].length; j++) {
@@ -38,6 +50,10 @@ public class ZweiteGeneration implements ActionListener {
                 }
             }
         }
+    }
+
+    public void generationenErstellen() {
+
     }
 
     // TODO

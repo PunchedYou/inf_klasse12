@@ -9,13 +9,17 @@ public class ArrSort {
 
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 10000) + 1;
-            // System.out.print("[" + arr[i] + "]");
         }
 
         System.out.println();
 
         bubbleSort(arr);
         insertionSort(arr);
+        shellSort(arr);
+    }
+
+    public void shellSort(int[] arr) {
+
     }
 
     public void insertionSort(int[] arr) {
@@ -78,7 +82,6 @@ public class ArrSort {
         long sekunden = TimeUnit.NANOSECONDS.toSeconds(t1 - t0);
         long millisekunden = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
 
-        System.out.println("Das Programm benötigte " + sekunden + "sek" + " (" + millisekunden + "ms) um den Array mit "
-                + sotierart + " zu sotieren!");
+        System.out.println("[" + sotierart + "] " + sekunden + "sek" + " (" + millisekunden + "ms)!");
     }
 }
