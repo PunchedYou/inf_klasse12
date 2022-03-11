@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class GameOfLive implements ActionListener, KeyListener {
+public class ZweiteGeneration implements ActionListener {
     private JFrame window = new JFrame("Eine Generation");
     JButton[][] button = new JButton[100][100];
 
     boolean[][] zellen;
     boolean[][] neueZellen;
 
-    public GameOfLive() {
+    public ZweiteGeneration() {
         window.setSize(1000, 1000);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(new GridLayout(button.length, button[0].length));
@@ -28,7 +28,7 @@ public class GameOfLive implements ActionListener, KeyListener {
     }
 
     public static void main(String[] args) {
-        GameOfLive g = new GameOfLive();
+        ZweiteGeneration g = new ZweiteGeneration();
 
         try {
             Thread.sleep(10000);
@@ -51,12 +51,6 @@ public class GameOfLive implements ActionListener, KeyListener {
                 }
             }
         }
-    }
-
-    public void keyPressed(KeyEvent e) {
-        if(KeyEvent.VK_E) {
-            generationenErstellen();
-        }    
     }
 
     public void generationenErstellen() {
@@ -119,11 +113,10 @@ public class GameOfLive implements ActionListener, KeyListener {
         // Bei mehr als 3 Nachbarn stirbt die Zelle
         int n = zaehleNachbarn(x, y);
         if (zellen[y][x]) {
-            n--; 
-        }       
-        return (!(n % 2));
+            n--;
+        }
+        return (!(n % 2 == 0));
     }
-
 
     private int zaehleNachbarn(int x, int y) {
         /*
