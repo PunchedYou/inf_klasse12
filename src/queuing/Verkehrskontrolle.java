@@ -1,3 +1,5 @@
+package queuing;
+
 public class Verkehrskontrolle {
     Queue<Fahrzeug> schlange = new Queue<Fahrzeug>();
     private int kontrolliert;
@@ -7,16 +9,17 @@ public class Verkehrskontrolle {
 
     }
 
-    public void herauswinken(Fahrzeug f){
-        //Ein Fahrzeug wird in die Warteschlange gewunken
+    public void herauswinken(Fahrzeug f) {
+        // Ein Fahrzeug wird in die Warteschlange gewunken
         schlange.enqueue(f);
     }
 
     public boolean fahrzeugUeberpruefen() {
-        //Wenn ein Auto in der Warteschlange ist, wird es aus seine Verkehrstauglichkeit überprüft
-        if(!schlange.isEmpty()){
+        // Wenn ein Auto in der Warteschlange ist, wird es aus seine
+        // Verkehrstauglichkeit überprüft
+        if (!schlange.isEmpty()) {
             kontrolliert += 1;
-            if((schlange.front()).getVerkehrstgl() < 10) {
+            if ((schlange.front()).getVerkehrstgl() < 10) {
                 mangelautos += 1;
                 schlange.dequeue();
                 return true;
@@ -25,9 +28,9 @@ public class Verkehrskontrolle {
         return false;
     }
 
-    public void kolonneAufloesen(){
+    public void kolonneAufloesen() {
         // Alle Autos werden aus der Warteschlange entfernt
-        while(!schlange.isEmpty()){
+        while (!schlange.isEmpty()) {
             schlange.dequeue();
         }
     }

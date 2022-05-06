@@ -1,3 +1,5 @@
+package queuing;
+
 public class Fahrzeug {
     private String model;
     private String farbe;
@@ -11,19 +13,19 @@ public class Fahrzeug {
         this.verkehrstgl = verkehrstgl;
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
     }
 
-    public String getFarbe(){
+    public String getFarbe() {
         return farbe;
     }
 
-    public String getKennzeichen(){
+    public String getKennzeichen() {
         return kennzeichen;
     }
 
-    public int getVerkehrstgl(){
+    public int getVerkehrstgl() {
         return verkehrstgl;
     }
 }
