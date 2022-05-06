@@ -19,7 +19,7 @@ public class ArrSort {
     }
 
     public void shellSort(int[] arr) {
-
+        return;
     }
 
     public void insertionSort(int[] arr) {
