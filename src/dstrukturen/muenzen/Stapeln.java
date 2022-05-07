@@ -40,34 +40,33 @@ public class Stapeln {
                 case 10: {
                     zehn.push(s.top());
                     xzehn += 1;
-                    s.pop();
                     break;
                 }
                 case 20: {
                     zwanzig.push(s.top());
                     xzwanzig += 1;
-                    s.pop();
                     break;
                 }
                 case 50: {
                     funfzig.push(s.top());
                     xfunfzig += 1;
-                    s.pop();
                     break;
                 }
                 case 100: {
                     hundert.push(s.top());
                     xhundert += 1;
-                    s.pop();
                     break;
                 }
                 case 200: {
                     zweihundert.push(s.top());
                     xzweihundert += 1;
-                    s.pop();
                     break;
                 }
+                default: {
+                    s.pop();
+                }
             }
+            s.pop();
         }
 
         System.out.println("10ct: " + xzehn + "; " + (xzehn * 10) + "ct");
