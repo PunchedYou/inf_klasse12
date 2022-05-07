@@ -1,4 +1,4 @@
-package dstrukturen;
+package dstrukturen.buero;
 
 public class Person {
     private String name;

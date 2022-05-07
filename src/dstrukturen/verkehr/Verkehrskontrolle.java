@@ -1,4 +1,6 @@
-package dstrukturen;
+package dstrukturen.verkehr;
+
+import dstrukturen.Queue;
 
 public class Verkehrskontrolle {
     Queue<Fahrzeug> schlange = new Queue<Fahrzeug>();

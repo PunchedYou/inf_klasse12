@@ -1,4 +1,6 @@
-package dstrukturen;
+package dstrukturen.muenzen;
+
+import dstrukturen.Stack;
 
 public class Stapeln {
     Stack<Muenze> s = new Stack<Muenze>();

@@ -1,9 +1,11 @@
-package dstrukturen;
+package dstrukturen.andere;
 
-public class Schlangen {
+import dstrukturen.Queue;
+
+public class Schlange {
     Queue<Integer> zahlen = new Queue<Integer>();
 
-    public Schlangen() {
+    public Schlange() {
 
     }
 

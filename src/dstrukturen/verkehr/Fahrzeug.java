@@ -1,4 +1,4 @@
-package dstrukturen;
+package dstrukturen.verkehr;
 
 public class Fahrzeug {
     private String model;

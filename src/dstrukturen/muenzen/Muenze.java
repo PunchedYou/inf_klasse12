@@ -1,4 +1,4 @@
-package dstrukturen;
+package dstrukturen.muenzen;
 
 import java.util.Random;
 

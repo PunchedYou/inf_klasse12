@@ -1,4 +1,6 @@
-package dstrukturen;
+package dstrukturen.buero;
+
+import dstrukturen.Queue;
 
 public class Buero {
     Queue<Person> q = new Queue<Person>();
