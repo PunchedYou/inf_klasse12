@@ -10,7 +10,7 @@ public class Palindrome {
         Palindrome p = new Palindrome();
     }
 
-    public void textUeberpruefen(String s) {
+    public boolean textUeberpruefen(String s) {
         String text = s;
         String umgekehrt = "";
         text = text.replaceAll("\\s+", "");
@@ -22,8 +22,10 @@ public class Palindrome {
 
         if (text.equals(umgekehrt)) {
             System.out.println("\"" + s + "\" ist ein Palindrom.");
+            return true;
         } else {
             System.out.println("\"" + s + "\" ist kein Palindrom.");
+            return false;
         }
     }
 }
