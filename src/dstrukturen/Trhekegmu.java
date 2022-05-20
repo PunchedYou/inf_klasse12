@@ -1,7 +1,4 @@
-package dstrukturen.andere;
-
-import dstrukturen.Queue;
-import dstrukturen.Stack;
+package dstrukturen;
 
 public class Trhekegmu {
     Stack s = new Stack<Integer>();
