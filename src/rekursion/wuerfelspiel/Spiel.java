@@ -1,7 +1,7 @@
 package rekursion.wuerfelspiel;
 
 public class Spiel {
-    Wuerfel w;
+    private Wuerfel w;
 
     public Spiel(Wuerfel w) {
         this.w = w;
@@ -37,16 +37,29 @@ public class Spiel {
         return e;
     }
 
-    // TODO
-    public int rekurMaxFinden(int x) {
-        int e = 0;
-        int t = w.wuerfeln();
-        if (x > 0) {
-            if (t > e) {
+    public static void main(String[] args) {
+        Wuerfel w = new Wuerfel(6);
+        Spiel s = new Spiel(w);
 
+        // s.rekurMaxFinden(10);
+
+        System.out.println(s.rekurGibXErgebnisse(10));
+
+    }
+
+    public int rekurMaxFinden(int x) {
+        int tmp = w.wuerfeln();
+        if (x > 0) {
+            int max = rekurMaxFinden(x - 1);
+            if (tmp > max) {
+                return tmp;
+            } else {
+                return max;
             }
         }
-        return e;
+        return 1;
+        // return max;
+
     }
 
     public int gibXErgebnisse(int x) {
@@ -59,10 +72,12 @@ public class Spiel {
         return e;
     }
 
-    // TODO
     public int rekurGibXErgebnisse(int x) {
-        int e = 0;
-
-        return e;
+        if (x > 0) {
+            t = rekurGibXErgebnisse(x - 1);
+            s += Integer.toString(rekurGibXErgebnisse(x - 1)) + Integer.toString(w.wuerfeln());
+            return Integer.parseInt(s);
+        }
+        return 0;
     }
 }

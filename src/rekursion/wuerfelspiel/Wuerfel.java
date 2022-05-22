@@ -1,7 +1,7 @@
 package rekursion.wuerfelspiel;
 
 public class Wuerfel {
-    int seiten;
+    private int seiten;
 
     public Wuerfel(int pSeiten) {
 
