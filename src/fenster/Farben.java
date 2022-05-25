@@ -1,8 +1,8 @@
 package fenster;
 
 import java.awt.Color;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Farben {
     private Map<Color, Character> encode = new HashMap<>();

@@ -1,13 +1,15 @@
 package fenster;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.BufferedReader;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class Fenster implements ActionListener {
     private JFrame window = new JFrame("Zufalls Farben");
@@ -17,8 +19,8 @@ public class Fenster implements ActionListener {
     Color[] colors = { Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW };
     Farben f = new Farben();
 
-    public Fenster(int groesse) {
-        button = new JButton[groesse][groesse];
+    public Fenster(int x, int y) {
+        button = new JButton[x][y];
         window.setSize(1000, 1000);
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,13 +96,12 @@ public class Fenster implements ActionListener {
 
     public void bildExportieren() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("Bild.txt"));
-        writer.write(feldEinzelnEinlesen());
+        writer.write(button[0].length + " " + button.length);
+        writer.write("\n" + feldEinzelnEinlesen());
         writer.close();
     }
 
-    public void bildImportieren() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("Bild.txt"));
-        String s = reader.readLine();
+    public void bildImportieren(String s) {
         for (int i = 0; i < button.length; i++) {
             for (int j = 0; j < button[i].length; j++) {
                 char c = s.charAt(Integer.parseInt(button[i][j].getText()) - 1);
