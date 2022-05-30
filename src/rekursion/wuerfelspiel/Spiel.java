@@ -57,9 +57,7 @@ public class Spiel {
                 return max;
             }
         }
-        return 1;
-        // return max;
-
+        return max;
     }
 
     public int gibXErgebnisse(int x) {

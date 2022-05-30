@@ -87,7 +87,7 @@ public class Fenster implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button[0][0]) {
             zufaelligeFarben();
-            System.out.println(feldEinzelnEinlesen().substring(0, 9) + "...");
+            System.out.println(feldEinzelnEinlesen().substring(0, 10) + "...");
             System.out.println(feldEinzelnEinlesen().length());
             System.out.println(feldGruppenEinlesen().length());
             System.out.println();
