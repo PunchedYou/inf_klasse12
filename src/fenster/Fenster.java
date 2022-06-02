@@ -17,7 +17,7 @@ public class Fenster implements ActionListener {
     // Color[] colors = { Color.BLACK, Color.WHITE };
     // Color[] colors = { Color.RED, Color. GREEN, Color.BLUE}
     Color[] colors = { Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW };
-    Farben f = new Farben();
+    Farben f = new Farben(true);
 
     public Fenster(int x, int y) {
         button = new JButton[x][y];
