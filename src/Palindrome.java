@@ -30,8 +30,8 @@ public class Palindrome {
 
     public boolean stackUeberpruefen(String s) {
         s = s.toLowerCase();
-        Stack<Character> text = new Stack<Character>();
-        Stack<Character> umgekehrt = new Stack<Character>();
+        Stack<Character> text = new Stack<>();
+        Stack<Character> umgekehrt = new Stack<>();
 
         // stack text belegen
         for (int i = 0; i < s.length(); i++) {

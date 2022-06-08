@@ -1,11 +1,9 @@
-package dstrukturen;
+package dstrukturen.weitere;
+
+import dstrukturen.Queue;
 
 public class Schlange {
-    Queue<Integer> zahlen = new Queue<Integer>();
-
-    public Schlange() {
-
-    }
+    Queue<Integer> zahlen = new Queue<>();
 
     public void zahlenSchlange(String s) {
         for (int i = 0; i < s.length(); i++) {

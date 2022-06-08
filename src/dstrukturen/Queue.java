@@ -1,6 +1,9 @@
 package dstrukturen;
 
 public class Queue<ContentType> {
+
+    /* --------- Anfang der privaten inneren Klasse -------------- */
+
     private class QueueNode {
 
         private ContentType content = null;

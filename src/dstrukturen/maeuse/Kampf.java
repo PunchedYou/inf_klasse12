@@ -6,9 +6,9 @@ import dstrukturen.Queue;
 import dstrukturen.Stack;
 
 public class Kampf {
-    Queue<Maus> eingang = new Queue<Maus>();
-    Queue<Maus> ausgang = new Queue<Maus>();
-    Stack<Maus> stapel = new Stack<Maus>();
+    Queue<Maus> eingang = new Queue<>();
+    Queue<Maus> ausgang = new Queue<>();
+    Stack<Maus> stapel = new Stack<>();
 
     public void zufallsBelegung(int anzahl) {
         for (int i = 1; i <= anzahl; i++) {
@@ -54,9 +54,9 @@ public class Kampf {
     }
 
     public void reihenfolgeSimulieren(int[] arr) {
-        Queue<Maus> teingang = new Queue<Maus>();
-        Queue<Maus> tausgang = new Queue<Maus>();
-        Stack<Maus> tstapel = new Stack<Maus>();
+        Queue<Maus> teingang = new Queue<>();
+        Queue<Maus> tausgang = new Queue<>();
+        Stack<Maus> tstapel = new Stack<>();
 
         for (int i : arr) {
             Maus m = new Maus(i, 0);

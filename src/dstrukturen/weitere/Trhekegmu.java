@@ -1,10 +1,13 @@
-package dstrukturen;
+package dstrukturen.weitere;
+
+import dstrukturen.Queue;
+import dstrukturen.Stack;
 
 public class Trhekegmu {
-    Stack s = new Stack<Integer>();
+    Stack<Integer> s = new Stack<>();
 
     public Trhekegmu() {
-        Queue q = new Queue<Integer>();
+        Queue<Integer> q = new Queue<>();
 
         for (int i = 0; i < 20; i++) {
             int random = ((int) (Math.random() * 9));

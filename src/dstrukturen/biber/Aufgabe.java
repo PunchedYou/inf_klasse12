@@ -5,8 +5,8 @@ import dstrukturen.Stack;
 
 // Seite 64; Aufgabe 3c; 10.05.22
 public class Aufgabe {
-    Queue<Biber> biber = new Queue<Biber>();
-    Stack<Teller> teller = new Stack<Teller>();
+    Queue<Biber> biber = new Queue<>();
+    Stack<Teller> teller = new Stack<>();
     int laenge;
 
     public Aufgabe(int laenge) {

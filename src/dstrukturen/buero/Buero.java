@@ -3,7 +3,7 @@ package dstrukturen.buero;
 import dstrukturen.Queue;
 
 public class Buero {
-    Queue<Person> q = new Queue<Person>();
+    Queue<Person> q = new Queue<>();
 
     public Buero() {
 

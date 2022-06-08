@@ -105,7 +105,7 @@ public class Fenster implements ActionListener {
         for (int i = 0; i < button.length; i++) {
             for (int j = 0; j < button[i].length; j++) {
                 char c = s.charAt(Integer.parseInt(button[i][j].getText()) - 1);
-                button[i][j].setBackground(f.getColor(c));
+                button[i][j].setBackground(f.getColor(String.valueOf(c)));
             }
         }
     }

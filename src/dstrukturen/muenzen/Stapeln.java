@@ -3,12 +3,12 @@ package dstrukturen.muenzen;
 import dstrukturen.Stack;
 
 public class Stapeln {
-    Stack<Muenze> s = new Stack<Muenze>();
-    Stack<Muenze> zehn = new Stack<Muenze>();
-    Stack<Muenze> zwanzig = new Stack<Muenze>();
-    Stack<Muenze> funfzig = new Stack<Muenze>();
-    Stack<Muenze> hundert = new Stack<Muenze>();
-    Stack<Muenze> zweihundert = new Stack<Muenze>();
+    Stack<Muenze> s = new Stack<>();
+    Stack<Muenze> zehn = new Stack<>();
+    Stack<Muenze> zwanzig = new Stack<>();
+    Stack<Muenze> funfzig = new Stack<>();
+    Stack<Muenze> hundert = new Stack<>();
+    Stack<Muenze> zweihundert = new Stack<>();
 
     public Stapeln() {
 
