@@ -38,8 +38,6 @@ public class Ahnenbaum {
         System.out.print(bt.getContent().getVorname() + " " + bt.getContent().getNachname() + "; ");
         if (!(bt.getLeftTree().isEmpty())) {
             preorderAusgabe(bt.getLeftTree());
-        } else {
-            return;
         }
         if (!(bt.getRightTree().isEmpty())) {
             preorderAusgabe(bt.getRightTree());
@@ -49,8 +47,6 @@ public class Ahnenbaum {
     public void postorderAusgabe(BinaryTree<Ahne> bt) {
         if (!(bt.getLeftTree().isEmpty())) {
             preorderAusgabe(bt.getLeftTree());
-        } else {
-            return;
         }
         if (!(bt.getRightTree().isEmpty())) {
             preorderAusgabe(bt.getRightTree());
@@ -61,8 +57,6 @@ public class Ahnenbaum {
     public void inorderAusgabe(BinaryTree<Ahne> bt) {
         if (!(bt.getLeftTree().isEmpty())) {
             preorderAusgabe(bt.getLeftTree());
-        } else {
-            return;
         }
         System.out.print(bt.getContent().getVorname() + " " + bt.getContent().getNachname() + "; ");
         if (!(bt.getRightTree().isEmpty())) {

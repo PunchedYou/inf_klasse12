@@ -1,5 +1,3 @@
-// Seite 64; Aufgabe 4c; 07.05.22
-
 import dstrukturen.Stack;
 
 public class Palindrome {
