@@ -14,11 +14,6 @@ public class Aufteilung {
         dateiEinlesen(datei);
     }
 
-    public static void main(String[] args) {
-        Aufteilung s = new Aufteilung();
-        s.regalEinrichten();
-    }
-
     /**
      * ! Aufgabe
      * Bücher sotieren
