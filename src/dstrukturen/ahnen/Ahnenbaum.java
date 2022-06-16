@@ -13,7 +13,7 @@ public class Ahnenbaum {
         postorderAusgabe(baum);
         System.out.print("\nInorder: ");
         inorderAusgabe(baum);
-        System.out.println();
+        System.out.println("\nAnzahl der Knoten: " + zaehleKnoten(baum) + 1);
     }
 
     public void baumErstellen() {
@@ -62,5 +62,18 @@ public class Ahnenbaum {
         if (!(bt.getRightTree().isEmpty())) {
             preorderAusgabe(bt.getRightTree());
         }
+    }
+
+    public int zaehleKnoten(BinaryTree<Ahne> bt) {
+        int z = 0;
+        if (!bt.getLeftTree().isEmpty()) {
+            z += zaehleKnoten(bt.getLeftTree());
+            z++;
+        }
+        if (!bt.getRightTree().isEmpty()) {
+            z += zaehleKnoten(bt.getRightTree());
+            z++;
+        }
+        return z;
     }
 }
