@@ -5,43 +5,45 @@ import java.util.Arrays;
 import dstrukturen.BinarySearchTree;
 
 public class DerBaum {
-    private int tiefe;
+    private int n;
     private BinarySearchTree<Zahlenobjekt> sb = new BinarySearchTree<>();
 
-    public DerBaum() {
-        baumErstellen(setArray(4));
-        System.out.println();
+    public DerBaum(int tiefe) {
+        baumErstellen(setArray(tiefe));
+
+        System.out.print("Baum:  ");
         inorderAusgabe(sb);
+        System.out.println("\n");
     }
 
-    public static void main(String[] args) {
-        DerBaum b = new DerBaum();
-    }
-
-    public int[] setArray(int tiefe) {
-        if (tiefe < 1) {
-            tiefe = (int) (Math.random() * 10) + 1;
+    public int[] setArray(int n) {
+        if (n < 1) {
+            n = (int) (Math.random() * (10 - 1)) + 1;
         }
 
-        this.tiefe = tiefe;
+        this.n = n;
 
-        System.out.println("Tiefe: " + tiefe);
+        System.out.println("Tiefe: " + n);
 
-        int x = (int) Math.pow(2, tiefe) - 1;
+        int x = (int) Math.pow(2, n) - 1;
 
-        System.out.println("Arraylänge: " + x);
+        System.out.println("Länge: " + x);
 
         int[] arr = new int[x];
 
         for (int i = 0; i < x; i++) {
-            arr[i] = (int) (Math.random() * 10000) + 1;
+            arr[i] = (int) (Math.random() * (10000 - 1)) + 1;
         }
 
         Arrays.sort(arr);
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        System.out.print("Array: ");
+
+        for (int i : arr) {
+            System.out.print(i + " ");
         }
+
+        System.out.println();
 
         return arr;
     }
@@ -49,9 +51,9 @@ public class DerBaum {
     public void baumErstellen(int[] arr) {
         int minuend = arr.length + 1;
 
-        for (int i = 1, j = tiefe - 1; i <= tiefe; i++, j--) {
+        for (int i = 1, j = n - 1; i <= n; i++, j--) {
             int breite = (int) Math.pow(2, (double) i - 1); // Breite in der aktuellen Ebene wird ermittelt (2^i-1)
-            int zahl = minuend / (int) Math.pow(2, i); // Linke Zahl der aktuellen Ebene wird ermittelt
+            int zahl = minuend / (int) Math.pow(2, i); // Linke Zahl der aktuellen Ebene wird ermittelt (x-2^i)
             sb.insert(new Zahlenobjekt(arr[zahl - 1]));
             for (int k = 1; k < breite; k++) {
                 zahl += 2 * (int) Math.pow(2, j); // Nächste Zahl wird berechnet (2*2^n)
