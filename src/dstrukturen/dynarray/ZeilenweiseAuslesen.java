@@ -29,7 +29,7 @@ public class ZeilenweiseAuslesen {
                 dynarr.append(line);
                 i++;
             }
-            System.out.println("Zeilen " + i);
+            System.out.println(i);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,6 +38,13 @@ public class ZeilenweiseAuslesen {
     public void aufgabeLoesen() {
         for (int i = 0; i < dynarr.getLength(); i++) {
             System.out.println(dynarr.getItem(i));
+        }
+
+        for (int i = 0; i < dynarr.getLength(); i++) {
+            for (int j = i + 1; j < dynarr.getLength(); j++) {
+                
+
+            }
         }
     }
 }
