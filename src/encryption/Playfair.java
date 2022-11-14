@@ -5,7 +5,7 @@ import java.awt.Point;
 public class Playfair {
     private char[][] square;
 
-    // Playfair Verschlüsseln
+    // Playfair Ver- und Entschlüsseln
 
     public String playfairCrypt(String text, String s, boolean decrypt) {
         createSquare(s);
