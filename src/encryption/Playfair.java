@@ -7,22 +7,22 @@ public class Playfair {
 
     // Playfair Ver- und Entschlüsseln
 
-    public String playfairCrypt(String text, String s, boolean decrypt) {
+    public String playfairCrypt(String k, String s, boolean decrypt) {
         createSquare(s);
-        String res = "";
-        System.out.println("Klartext/Chiffre: " + text + "\nSchlüssel: " + s + " (Decrypt? " + decrypt + ")");
-        text = formatString(text);
-        text = pushDuplicates(text);
+        String w = "";
+        System.out.println("Klartext/Chiffre: " + k + "\nSchlüssel: " + s + " (Decrypt? " + decrypt + ")");
+        k = formatString(k);
+        k = pushDuplicates(k);
 
-        if (text.length() % 2 != 0) {
-            text += "X";
+        if (k.length() % 2 != 0) {
+            k += "X";
         }
 
-        for (int i = 0; i <= text.length() - 1; i += 2) {
-            res += cryptPair(getPosition(text.charAt(i)), getPosition(text.charAt(i + 1)), decrypt);
+        for (int i = 0; i <= k.length() - 1; i += 2) {
+            w += cryptPair(getPosition(k.charAt(i)), getPosition(k.charAt(i + 1)), decrypt);
         }
-        System.out.println("--> " + res);
-        return res;
+        System.out.println("--> " + w);
+        return w;
     }
 
     private String cryptPair(Point a, Point b, boolean decrypt) {
@@ -134,7 +134,7 @@ public class Playfair {
 
     public static void main(String[] args) {
         Playfair pf = new Playfair();
-        String test = pf.playfairCrypt("Dies ist ein Beispielklartext", "Mittwoch", false);
-        pf.playfairCrypt(test, "Mittwoch", true);
+        pf.playfairCrypt("Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.", "Geheimer Schluessel", false);
+        pf.playfairCrypt("ALNVYMNRQMUTTEQCMONZGSVBGCSQUOGONKYHTLGSKCSLEDFVGSPV", "Geheimer Schluessel", true);
     }
 }
