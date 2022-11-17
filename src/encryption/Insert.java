@@ -13,11 +13,11 @@ public class Insert {
         return k;
     }
 
-    public String pushDuplicates(String k) {
+    public String pushDuplicates2(String k) {
         String r = "";
 
         for (int i = 0; i < k.length(); i++) {
-            if (i % 2 != 0 && k.charAt(i) == r.charAt(r.length() - 1)) {
+            if (r.length() % 2 != 0 && k.charAt(i) == r.charAt(r.length() - 1)) {
                 r += "X";
                 i--;
             } else {
