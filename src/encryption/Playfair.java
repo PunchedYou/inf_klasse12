@@ -51,7 +51,7 @@ public class Playfair {
     // Findet Doppel-Buchstaben und fügt X ein
 
     private String pushDuplicates(String k) {
-        for (int i = 0; i < k.length() - 1; i+=2) {
+        for (int i = 0; i < k.length() - 1; i += 2) {
             if (k.charAt(i) == k.charAt(i + 1)) {
                 k = k.substring(0, i + 1) + 'X' + k.substring(i + 1);
             }

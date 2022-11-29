@@ -32,7 +32,7 @@ public class Insert {
         // Vorbereitung
         String kn = "";
         k = k.toUpperCase();
-        Queue<Character> q = new Queue<Character>();
+        Queue<Character> q = new Queue<>();
         for (int i = 0; i < k.length(); i++) {
             q.enqueue(k.charAt(i));
         }
