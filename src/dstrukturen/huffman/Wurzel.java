@@ -1,7 +1,7 @@
 package dstrukturen.huffman;
 
 public class Wurzel {
-    boolean node = false;
+    boolean node;
     char buchstabe;
     int haufigkeit;
 
@@ -11,6 +11,7 @@ public class Wurzel {
     }
 
     public Wurzel(char buchstabe, int haufigkeit) {
+        node = false;
         this.buchstabe = buchstabe;
         this.haufigkeit = haufigkeit;
     }

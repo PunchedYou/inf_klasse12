@@ -72,7 +72,7 @@ public class Huffman {
         Queue<BinaryTree<Wurzel>> tmp = new Queue<>();
 
         for (int i = 0; i < obj.length; i++) {
-            BinaryTree<Wurzel> bt = new BinaryTree<>(new Wurzel(obj[i].getBuchstabe(), obj[i].getHaufigkeit()));
+            BinaryTree<Wurzel> bt = new BinaryTree<>(obj[i]);
             q.enqueue(bt);
         }
 
