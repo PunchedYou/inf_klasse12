@@ -4,56 +4,46 @@ public class Blockchiffre {
     public Blockchiffre() {
 
     }
-
     public static void main(String[] args) {
         Blockchiffre bc = new Blockchiffre();
-        bc.wortEntschluesseln(bc.wortVerschluesseln("a"));
+        bc.wortEntschluesseln(bc.wortVerschluesseln("Affenalarm"));
     }
 
     public String wortVerschluesseln(String s) {
-        System.out.println("Verschlüsseln: (" + s + ")");
-        s = toBinary(s);
+        System.out.println("Verschlüsseln:");
+        String bin = toBinary(s);
 
-        s = oneTimePad(s, "11110000");
-        s = transposition(s, "3142");
+        bin = oneTimePad(bin, "11110000");
+        bin = transposition(bin, "3142");
 
-        s = oneTimePad(s, "10101110");
-        s = transposition(s, "4312");
+        bin = oneTimePad(bin, "10101110");
+        bin = transposition(bin, "4312");
 
-        System.out.print(s + " => ");
+        String asc = toASCII(bin);
+        System.out.println(s + " => " + asc);
+        // System.out.println("Klartext: " + toBinary(s) + "\nChiffre: " + bin);
 
-        String d = "";
-        for (int i = 0; i < s.length() / 8; i++) {
-            d += (char) Integer.parseInt(s.substring(i, i + 8), 2);
-        }
-        System.out.println(d);
-        s = d;
-
-        return s;
+        return asc;
     }
 
     public String wortEntschluesseln(String s) {
-        System.out.println("Entschlüsseln: (" + s + ")");
-        String b = toBinary(s);
+        System.out.println("Entschlüsseln:");
+        String bin = toBinary(s);
 
-        b = transposition(b, "3421");
-        b = oneTimePad(b, "10101110");
+        bin = transposition(bin, "3421");
+        bin = oneTimePad(bin, "10101110");
 
-        b = transposition(b, "2413");
-        b = oneTimePad(b, "11110000");
+        bin = transposition(bin, "2413");
+        bin = oneTimePad(bin, "11110000");
 
-        String d = "";
-        for (int i = 0; i < b.length() / 8; i++) {
-            d += (char) Integer.parseInt(b.substring(i, i + 8), 2);
-        }
+        String asc = toASCII(bin);
+        System.out.println(s + " => " + asc);
+        // System.out.println("Chiffre: " + toBinary(s) + "\nKlartext: " + bin);
 
-        System.out.println(toBinary(s) + " => " + b);
-        System.out.println(s + " => " + d);
-
-        return d;
+        return asc;
     }
 
-    public String binaryASCII(char c) {
+    public String formatBinary(char c) {
         String s = Integer.toBinaryString(c);
         while (s.length() < 8) {
             s = "0" + s;
@@ -64,16 +54,24 @@ public class Blockchiffre {
     public String toBinary(String s) {
         String r = "";
         for (int i = 0; i < s.length(); i++) {
-            r += binaryASCII(s.charAt(i));
+            r += formatBinary(s.charAt(i));
+        }
+        return r;
+    }
+
+    public String toASCII(String s) {
+        String r = "";
+        for (int i = 0; i < s.length(); i += 8) {
+            r += (char) Integer.parseInt(s.substring(i, i + 8), 2);
         }
         return r;
     }
 
     public String transposition(String s, String p) {
         String r = "";
-        for (int i = 0; i < s.length() / 4; i++) {
+        for (int i = 0; i < s.length(); i += 4) {
             for (int j = 0; j < 4; j++) {
-                r += s.charAt((4 * i) + (Integer.parseInt(String.valueOf(p.charAt(j))) - 1));
+                r += s.charAt(i + (Integer.parseInt(String.valueOf(p.charAt(j))) - 1));
             }
         }
         return r;
@@ -81,12 +79,11 @@ public class Blockchiffre {
 
     public String oneTimePad(String s, String p) {
         String r = "";
-        for (int i = 0; i < s.length() / 8; i++) {
+        for (int i = 0; i < s.length(); i += 8) {
             for (int j = 0; j < 8; j++) {
                 r += (s.charAt(i + j) == p.charAt(j)) ? 0 : 1;
             }
         }
         return r;
     }
-
 }
