@@ -212,11 +212,15 @@ public class Blockchiffre {
 
     private String generateOTP1(String pass) {
         pass = toBinary(pass);
-        int parts = pass.length() / 8;
+        int parts = (pass.length() - 5) / 8;
         String otpcode = "";
 
         for (int i = 5; i < pass.length(); i += parts) {
             otpcode += pass.charAt(i);
+
+            if (otpcode.length() == 8) {
+                break;
+            }
         }
 
         return otpcode;
@@ -224,14 +228,17 @@ public class Blockchiffre {
 
     private String generateOTP2(String pass) {
         pass = toBinary(pass);
-        int parts = pass.length() / 8;
+        int parts = (pass.length() - 7) / 8;
         String otpcode = "";
 
         for (int i = 7; i < pass.length(); i += parts) {
             otpcode += pass.charAt(i);
+
+            if (otpcode.length() == 8) {
+                break;
+            }
         }
 
         return otpcode;
     }
-
 }
