@@ -8,7 +8,7 @@ public class Blockchiffre {
     public static void main(String[] args) {
         Blockchiffre bc = new Blockchiffre();
         // bc.wortEntschluesseln(bc.wortVerschluesseln("Affenalarm"));
-        bc.passEntschluesseln(bc.passVerschluesseln("icbineintesttext", "ichtestedich"), "ichtestedich");
+        bc.passEntschluesseln(bc.passVerschluesseln("icbineintesttext", "passwort"), "passwort");
     }
 
     public String wortVerschluesseln(String s) {
