@@ -77,7 +77,7 @@ public class Blockchiffre {
         String r = "";
         for (int i = 0; i < s.length(); i += 4) {
             for (int j = 0; j < 4; j++) {
-                r += s.charAt(i + (Integer.parseInt(String.valueOf(p.charAt(j))) - 1));
+                r += s.charAt(i + (Character.getNumericValue(p.charAt(j))) - 1);
             }
         }
         return r;
@@ -89,7 +89,7 @@ public class Blockchiffre {
         String r = "";
         for (int i = 1; i <= p.length(); i++) {
             for (int j = 0; j < p.length(); j++) {
-                if (i == Integer.parseInt(String.valueOf(p.charAt(j)))) {
+                if (i == Character.getNumericValue(p.charAt(j))) {
                     r += (j + 1);
                 }
             }
