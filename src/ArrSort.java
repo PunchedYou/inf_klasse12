@@ -5,8 +5,9 @@ public class ArrSort {
     private long t0;
     private long t1;
 
-    public ArrSort() {
-
+    public static void main(String[] args) {
+        ArrSort sort = new ArrSort();
+        sort.testExample(100000);
     }
 
     public void testExample(int arrLength) {
@@ -21,11 +22,6 @@ public class ArrSort {
         bubbleSort(Arrays.copyOf(arr, arr.length));
         insertionSort(Arrays.copyOf(arr, arr.length));
         shellSort(Arrays.copyOf(arr, arr.length));
-    }
-
-    public static void main(String[] args) {
-        ArrSort sort = new ArrSort();
-        sort.testExample(1000000);
     }
 
     /**
@@ -148,18 +144,18 @@ public class ArrSort {
 
     }
 
-    private void printArray(int[] arr, int amount) {
-        System.out.print("[");
-        for(int i = 0; i < amount - 1; i++) {
-            System.out.print(arr[i] + "; ");
-        }
-        System.out.println(arr[amount] + "]");
-    }
-
     private void zeitAusgeben(String type) {
         long sekunden = TimeUnit.NANOSECONDS.toSeconds(t1 - t0);
         long millisekunden = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
 
         System.out.println("[" + type + "] " + sekunden + "s" + " (" + millisekunden + "ms)");
+    }
+
+    private void arrayAusgeben(int[] arr, int amount) {
+        System.out.print("[");
+        for(int i = 0; i < amount - 1; i++) {
+            System.out.print(arr[i] + "; ");
+        }
+        System.out.println(arr[amount] + "]");
     }
 }
