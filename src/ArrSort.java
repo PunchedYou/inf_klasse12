@@ -7,7 +7,7 @@ public class ArrSort {
 
     public static void main(String[] args) {
         ArrSort sort = new ArrSort();
-        sort.testExample(100000);
+        sort.testExample(1000000);
     }
 
     public void testExample(int arrLength) {
@@ -66,7 +66,7 @@ public class ArrSort {
     }
 
     /**
-     * <strong> Insertion Sort-Algorithmus in aufsteigender Reihenfolge: </strong>
+     * <strong> Insertion Sort Algorithmus in aufsteigender Reihenfolge: </strong>
      * Die äußere Schleife durchläuft das Array von links nach rechts, während die
      * innere Schleife das aktuelle Element key mit jedem Element in der sortierten
      * Teilmenge des Arrays vergleicht, das kleiner als key ist. Solange ein Element
