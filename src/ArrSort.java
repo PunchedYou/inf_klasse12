@@ -18,8 +18,8 @@ public class ArrSort {
 
         // Es wird eine Kopie des Arrays genommen um den original Array nicht zu verändern.
 
-        // bubbleSort(Arrays.copyOf(arr, arr.length));
-        // insertionSort(Arrays.copyOf(arr, arr.length));
+        bubbleSort(Arrays.copyOf(arr, arr.length));
+        insertionSort(Arrays.copyOf(arr, arr.length));
         shellSort(Arrays.copyOf(arr, arr.length));
     }
 
