@@ -1,21 +1,31 @@
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class ArrSort {
     private long t0;
     private long t1;
 
-    public ArrSort(int arrLength) {
+    public ArrSort() {
+
+    }
+
+    public void testExample(int arrLength) {
         int[] arr = new int[arrLength];
 
         for (int i = 0; i < arrLength; i++) {
             arr[i] = (int) (Math.random() * (arrLength - 1)) + 1;
         }
 
-        System.out.println();
+        // Es wird eine Kopie des Arrays genommen um den original Array nicht zu verändern.
 
-        bubbleSort(arr);
-        insertionSort(arr);
-        shellSort(arr);
+        // bubbleSort(Arrays.copyOf(arr, arr.length));
+        // insertionSort(Arrays.copyOf(arr, arr.length));
+        shellSort(Arrays.copyOf(arr, arr.length));
+    }
+
+    public static void main(String[] args) {
+        ArrSort sort = new ArrSort();
+        sort.testExample(1000000);
     }
 
     /**
@@ -54,7 +64,7 @@ public class ArrSort {
 
         t1 = System.nanoTime();
 
-        zeitAusgeben(t0, t1, "Bubble Sort");
+        zeitAusgeben("Bubble Sort");
 
         return arr;
     }
@@ -88,7 +98,7 @@ public class ArrSort {
 
         t1 = System.nanoTime();
 
-        zeitAusgeben(t0, t1, "Insertion Sort");
+        zeitAusgeben("Insertion Sort");
 
         return arr;
     }
@@ -132,16 +142,24 @@ public class ArrSort {
 
         t1 = System.nanoTime();
 
-        zeitAusgeben(t0, t1, "Shell Sort");
+        zeitAusgeben("Shell Sort");
 
         return arr;
 
     }
 
-    private void zeitAusgeben(long t0, long t1, String sotierart) {
+    private void printArray(int[] arr, int amount) {
+        System.out.print("[");
+        for(int i = 0; i < amount - 1; i++) {
+            System.out.print(arr[i] + "; ");
+        }
+        System.out.println(arr[amount] + "]");
+    }
+
+    private void zeitAusgeben(String type) {
         long sekunden = TimeUnit.NANOSECONDS.toSeconds(t1 - t0);
         long millisekunden = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
 
-        System.out.println("[" + sotierart + "] " + sekunden + "sek" + " (" + millisekunden + "ms)!");
+        System.out.println("[" + type + "] " + sekunden + "s" + " (" + millisekunden + "ms)");
     }
 }
