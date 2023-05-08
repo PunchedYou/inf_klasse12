@@ -37,6 +37,7 @@ public class Draw {
             }
         }
 
+        sc.close();
         print();
     }
 

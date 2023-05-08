@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -17,12 +19,30 @@ public class Fenster implements ActionListener {
     // Color[] colors = { Color.BLACK, Color.WHITE };
     // Color[] colors = { Color.RED, Color. GREEN, Color.BLUE}
     Color[] colors = { Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW };
-    Farben f = new Farben(true);
+    Farben f = new Farben(false);
+
+
+    public static void main(String[] args) {
+        Fenster f = new Fenster(100, 100);
+    }
+
+
+    public Fenster() {
+        bildImportieren(true);
+    }
 
     public Fenster(int x, int y) {
+        createWindow(x, y);
+        zufaelligeFarben();
+        bildAusgeben();
+    }
+
+    private void createWindow(int x, int y) {
         button = new JButton[x][y];
+
         window.setSize(1000, 1000);
         window.setResizable(false);
+        window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(new GridLayout(button.length, button[0].length));
 
@@ -32,11 +52,11 @@ public class Fenster implements ActionListener {
             for (int j = 0; j < button[i].length; j++) {
                 button[i][j] = new JButton("");
                 window.add(button[i][j]);
-                button[i][j].setBackground(Color.WHITE);
                 button[i][j].setText(Integer.toString(z));
                 z++;
             }
         }
+
         button[0][0].addActionListener(this);
         window.setVisible(true);
     }
@@ -87,26 +107,52 @@ public class Fenster implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button[0][0]) {
             zufaelligeFarben();
-            System.out.println(feldEinzelnEinlesen().substring(0, 10) + "...");
-            System.out.println(feldEinzelnEinlesen().length());
-            System.out.println(feldGruppenEinlesen().length());
-            System.out.println();
+            bildAusgeben();
         }
     }
 
-    public void bildExportieren() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("Bild.txt"));
-        writer.write(button[0].length + " " + button.length);
-        writer.write("\n" + feldEinzelnEinlesen());
-        writer.close();
+    public void bildAusgeben() {
+        String einzeln = feldEinzelnEinlesen();
+        String gruppen = feldGruppenEinlesen();
+        System.out.println(einzeln.substring(0, 50) + "...");
+        System.out.println("Gesamte Länge: " + einzeln.length());
+        System.out.println(gruppen.substring(0, 50) + "...");
+        System.out.println("Gesamte Länge: " + gruppen.length());
+        System.out.println();
     }
 
-    public void bildImportieren(String s) {
+    public String bildExportieren() throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Bild.txt"))) {
+            writer.write(button[0].length + " " + button.length);
+            writer.write("\n" + feldEinzelnEinlesen());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "Export war erfolgreich!";
+    }
+
+    public String bildImportieren(boolean init) {
+        String pic = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader("Bild.txt"))) {
+            String[] size = reader.readLine().split(" ");
+            if (init) {
+                createWindow(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
+            } else if (Integer.parseInt(size[1]) != button.length || Integer.parseInt(size[0]) != button[0].length) {
+                return "Datei hat die falsche Größe!";
+            }
+            pic = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         for (int i = 0; i < button.length; i++) {
             for (int j = 0; j < button[i].length; j++) {
-                char c = s.charAt(Integer.parseInt(button[i][j].getText()) - 1);
+                char c = pic.charAt(Integer.parseInt(button[i][j].getText()) - 1);
                 button[i][j].setBackground(f.getColor(String.valueOf(c)));
             }
         }
+
+        return "Import war erfolgreich!";
     }
 }
